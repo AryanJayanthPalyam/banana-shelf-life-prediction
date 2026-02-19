@@ -1,0 +1,542 @@
+/* --- Global Styles --- */
+:root {
+    --banana-yellow: #FFC300;
+    /* Rich Gold/Yellow */
+    --banana-green: #388E3C;
+    /* Deep Banana Green */
+    --dark-text: #2c3e50;
+    /* Dark Navy for Contrast */
+    --light-bg: #F8F8F8;
+    /* Creamy White/Light Gray */
+    --card-bg: #FFFFFF;
+    --shadow-light: 0 6px 15px rgba(0, 0, 0, 0.08);
+    --shadow-deep: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Apply Poppins font */
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+main {
+    padding-top: 75px;
+    /* Space for the fixed header */
+    min-height: calc(100vh - 50px);
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--card-bg);
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-light);
+    z-index: 1000;
+}
+
+.nav-brand {
+    color: var(--banana-green);
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 5px 0;
+}
+
+.nav-link {
+    color: var(--banana-green);
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 18px;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    background-color: var(--banana-yellow);
+    color: var(--dark-text);
+    box-shadow: 0 3px 6px rgba(255, 195, 0, 0.3);
+}
+
+/* --- Home Page: Carousel --- */
+.carousel-section {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Shadow on the slider */
+}
+
+.carousel-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.carousel-img.active {
+    opacity: 1;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+}
+
+.dot {
+    height: 14px;
+    width: 14px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active,
+.dot:hover {
+    background-color: var(--banana-yellow);
+    border-color: var(--banana-yellow);
+    transform: scale(1.1);
+}
+
+/* --- Home Page: Info Section --- */
+.info-section {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    padding: 40px;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    /* More rounded corners */
+    box-shadow: var(--shadow-deep);
+    text-align: center;
+}
+
+.section-title {
+    color: var(--banana-green);
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--banana-yellow);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.section-text {
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    color: #555;
+}
+
+.solution-text {
+    font-weight: 600;
+    color: var(--banana-green);
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.predict-button {
+    display: inline-block;
+    background-color: var(--banana-yellow);
+    color: var(--dark-text);
+    padding: 14px 35px;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-top: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    font-size: 1.1em;
+}
+
+.predict-button:hover {
+    background-color: #FFD700;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(255, 195, 0, 0.4);
+}
+
+/* --- Predict Page: Upload Section (Re-included for consistency) --- */
+.predict-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.upload-section {
+    background-color: var(--card-bg);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-deep);
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+}
+
+.upload-section h2 {
+    margin-bottom: 35px;
+    font-size: 1.8em;
+}
+
+.upload-box {
+    border: 4px dashed var(--banana-yellow);
+    background-color: #FFFDE7;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.upload-label {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.upload-label p {
+    color: var(--banana-green);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    border: 3px solid var(--light-bg);
+    box-shadow: var(--shadow-light);
+    object-fit: contain;
+    margin-top: 15px;
+}
+
+.predict-submit-button {
+    background-color: var(--banana-green);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 25px;
+    letter-spacing: 1px;
+}
+
+.predict-submit-button:hover {
+    background-color: #2E7D32;
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(56, 142, 60, 0.3);
+}
+
+.result-box {
+    border-top: 3px solid var(--banana-yellow);
+    padding-top: 25px;
+    margin-top: 35px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1.15em;
+    padding: 8px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.result-label {
+    font-weight: 400;
+    color: #555;
+}
+
+.result-value {
+    color: var(--banana-green);
+    font-weight: 700;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark-text);
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+
+/* --- Global Variables and Base Styles --- */
+:root {
+    --banana-yellow: #FFC300;
+    /* Rich Gold/Yellow */
+    --banana-green: #388E3C;
+    /* Deep Banana Green */
+    --dark-text: #2c3e50;
+    /* Dark Navy for Contrast */
+    --light-bg: #F8F8F8;
+    /* Creamy White/Light Gray */
+    --card-bg: #FFFFFF;
+    --shadow-light: 0 6px 15px rgba(0, 0, 0, 0.08);
+    --shadow-deep: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+/* Ensure the main content is centered and takes up space */
+body>.container {
+    max-width: 550px;
+    /* Constrain width for a clean look */
+    margin: 75px auto 50px auto;
+    /* 75px top margin for fixed header space */
+    padding: 40px;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: var(--shadow-deep);
+    text-align: center;
+}
+
+/* --- Navigation Bar (If you add a header/nav bar as in the previous example) --- */
+/* If you decide to include the nav bar, you should wrap your HTML in <main> and <footer> */
+/* For now, assuming your provided HTML is the full body content. */
+
+.page-title {
+    color: var(--banana-green);
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.page-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--banana-yellow);
+    margin: 10px auto 20px;
+    border-radius: 2px;
+}
+
+.subtitle {
+    margin-bottom: 35px;
+    color: #777;
+    font-size: 1em;
+}
+
+/* --- Upload Area --- */
+.upload-area {
+    border: 4px dashed var(--banana-yellow);
+    background-color: #FFFDE7;
+    /* Very light yellow background */
+    border-radius: 10px;
+    padding: 0px;
+    margin-bottom: 25px;
+    transition: border-color 0.3s;
+}
+
+.upload-area:hover {
+    border-color: var(--banana-green);
+}
+
+.upload-label {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    font-weight: 600;
+    color: var(--banana-green);
+    font-size: 1.1em;
+}
+
+/* Hide the native file input */
+#fileInput {
+    display: none;
+}
+
+/* --- Image Preview --- */
+.image-preview-box {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-img {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 8px;
+    border: 3px solid var(--light-bg);
+    box-shadow: var(--shadow-light);
+    object-fit: contain;
+}
+
+/* --- Predict Button --- */
+.predict-btn {
+    background-color: var(--banana-green);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 25px;
+    letter-spacing: 1px;
+}
+
+.predict-btn:hover {
+    background-color: #2E7D32;
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(56, 142, 60, 0.3);
+}
+
+/* --- Loading Indicator (Using pure CSS spinner instead of image) --- */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: var(--banana-green);
+    font-weight: 500;
+}
+
+/* Spinner class to replace loading.gif */
+.loading .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--banana-yellow);
+    /* Yellow spinner */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+/* Ensure the text is visible under the spinner */
+.loading p {
+    margin-top: 5px;
+}
+
+
+/* --- Result Box --- */
+.result-box {
+    border-top: 3px solid var(--banana-yellow);
+    padding-top: 25px;
+    margin-top: 35px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.result-box h2 {
+    color: var(--dark-text);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.4em;
+    border-bottom: 1px solid #ddd;
+}
+
+.result-box p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1.15em;
+    padding: 8px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.result-box p:last-of-type {
+    border-bottom: none;
+}
+
+.result-box strong {
+    font-weight: 400;
+    /* Lighter weight for label */
+    color: #555;
+}
+
+.result-box span {
+    color: var(--banana-green);
+    font-weight: 700;
+    /* Heavy weight for value */
+}

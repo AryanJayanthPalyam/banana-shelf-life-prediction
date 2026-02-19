@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Banana Ripeness Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="page-title">Banana Variety & Ripeness Prediction</h1>
+    <p class="subtitle">Upload a banana image to estimate ripeness level</p>
+
+    <div class="upload-area">
+        <input type="file" id="fileInput" accept="image/*">
+        <label for="fileInput" class="upload-label">
+            Click to Upload Image
+        </label>
+    </div>
+
+    <div id="imagePreviewBox" class="image-preview-box" style="display:none;">
+        <img id="preview" class="preview-img">
+    </div>
+
+    <button id="predictBtn" class="predict-btn" style="display:none;">
+        Predict
+    </button>
+
+    <div id="loading" class="loading" style="display:none;">
+        <img src="loading.gif" width="250px">
+        
+    </div>
+
+    <div id="resultBox" class="result-box" style="display:none;">
+        <h2>Prediction</h2>
+        <p><strong>Variety:</strong> <span id="varietyText"></span></p>
+        <p><strong>Ripeness:</strong> <span id="daysText"></span></p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

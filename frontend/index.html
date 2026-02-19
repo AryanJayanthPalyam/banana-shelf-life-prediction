@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana Shelf Life Predictor - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Poppins Font from Google Fonts for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Sticky Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <!-- Updated Title as a brand element -->
+                <a href="index.html" class="nav-brand">Banana Shelf Life Predictor</a>
+            </div>
+            <div class="nav-right">
+                <!-- Navigation link for the prediction page -->
+                <a href="predict.html" class="nav-link">Predict</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Image Carousel Section (The sliding images) -->
+        <section class="carousel-section">
+            <div class="carousel-container">
+                <!-- Placeholder images for bananas at different stages -->
+                <img src="https://static.vecteezy.com/system/resources/previews/007/669/083/non_2x/banana-tree-with-bunch-of-raw-green-bananas-and-banana-green-leaves-cultivated-banana-plantation-tropic-fruit-farm-herbal-medicine-for-treatment-diarrhea-and-gastritis-agriculture-organic-food-free-photo.jpg" alt="Overripe Banana Waste" class="carousel-img">
+                <img src="https://thumbs.dreamstime.com/b/bunches-bananas-hanging-tree-banana-farm-line-trees-background-bunches-bananas-hanging-tree-314142876.jpg" alt="Fresh Banana" class="carousel-img active">
+                <img src="https://thumbs.dreamstime.com/b/ripe-yellowing-bananas-hang-clusters-banana-plantations-industrial-scale-banana-cultivation-worldwide-export-ripe-260299035.jpg" alt="Ripe Banana" class="carousel-img">
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </section>
+
+        <!-- Information and Call-to-Action Section -->
+        <section class="info-section">
+            <h2 class="section-title">The Challenge of Banana Waste</h2>
+            <p class="section-text">
+                Nearly <b>1.3 billion tons</b> of food is wasted annually, and bananas make up a major portion due to 
+                <b>over-ripening</b> and <b>poor storage prediction</b>. 
+            </p>
+            <p class="section-text solution-text">
+                Our AI tool predicts the banana variety and its remaining days before over-ripening, 
+                helping to optimize inventory and **significantly reduce waste**.
+            </p>
+
+            <!-- Predict Button -->
+            <button class="predict-button" onclick="window.location.href='predict.html'">
+                Start Predicting Ripeness
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Banana Predictor Project</p>
+    </footer>
+
+    <script>
+        // Simple JavaScript for image sliding functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-img');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                dots[i].classList.remove('active');
+            });
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Dot navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                currentSlide = parseInt(e.target.dataset.slide);
+                showSlide(currentSlide);
+            });
+        });
+
+        // Initialize first slide
+        showSlide(currentSlide);
+    </script>
+
+</body>
+</html>
